@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "turbooffice": {
+      "type": "http",
+      "url": "https://turbooffice.ai/mcp"
+    }
+  }
+}

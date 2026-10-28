@@ -1,0 +1,15 @@
+{
+  "name": "turbooffice",
+  "description": "TurboOffice for Claude: work your real estate deals in TurboOffice.",
+  "owner": {
+    "name": "TurboOffice, Inc.",
+    "email": "parker@turbooffice.ai"
+  },
+  "plugins": [
+    {
+      "name": "turbooffice",
+      "source": "./",
+      "description": "Work your real estate deals in TurboOffice from Claude."
+    }
+  ]
+}
