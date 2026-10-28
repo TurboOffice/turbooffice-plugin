@@ -9,7 +9,7 @@
   },
   "homepage": "https://turbooffice.ai/docs",
   "repository": "https://github.com/TurboOffice/turbooffice-plugin",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "keywords": [
     "real-estate",
     "transactions",
