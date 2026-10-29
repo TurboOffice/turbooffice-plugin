@@ -5,8 +5,9 @@ agreement through closing. This plugin connects Claude to it.
 
 With the plugin, Claude can read your deals, offers and their counters and amendments, the documents on file, your
 tasks and key dates, and what each deal still needs. It can keep your tasks, appointments and notes, and hand
-drafting to TurboOffice's own assistant. Anything that binds or ends a contract, sends paper for signatures or emails
-people waits as a card for your approval. Signing always happens in TurboOffice.
+drafting to TurboOffice's own assistant. Anything that binds or ends a contract or sends paper for signatures waits as a card for your approval.
+Starting a listing or preparing its seller disclosure can email the sellers an invitation to complete it.
+Signing always happens in TurboOffice.
 
 ## What is in it
 
@@ -41,6 +42,24 @@ Then connect the TurboOffice connector and sign in. The steps are at https://tur
 
 A TurboOffice account at a brokerage that has connecting apps turned on. No account yet? Request access at
 https://turbooffice.ai/request-access.
+
+## OpenAI submission preparation
+
+The portable `plugin.json` and `mcp.json` describe the OpenAI package. Its skills are the same generated files
+used by Claude. The OpenAI listing includes draft review cases; they are not a record of passed tests.
+The publisher is TurboOffice Technologies, Inc.; availability is US-only, with no purchases or payments in the plugin.
+The demo recording and portal publisher verification remain incomplete.
+Reviewer credentials belong only in the secure submission portal, never in this repository or an archive.
+
+To export a separate upload copy and ZIP, choose a fresh directory outside this repository:
+
+```bash
+python3 scripts/package-openai.py /absolute/path/to/submission-output
+```
+
+The export includes the portable manifests, generated skills, icon and license. It excludes the Claude marketplace,
+compatibility manifests, Git files and preparation scripts. Do not submit the draft until its review materials
+and server checks are complete. The monorepo's `docs/mcp/directory-readiness.md` tracks the remaining work.
 
 ## Help
 
