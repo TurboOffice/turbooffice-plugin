@@ -13,7 +13,7 @@ people waits as a card for your approval. Signing always happens in TurboOffice.
 - `skills/turbooffice/SKILL.md`: when Claude should use TurboOffice, and the same guidance the TurboOffice server
   gives every assistant.
 - `skills/<name>/SKILL.md`, one per kind of work, the same catalog TurboOffice's own assistant works from (`offer`,
-  `contract`, `sign`, `route-document`, `cma`, `forms`, `signers`, `deal`, `pricing`, `migrate`): what that work needs before it starts and how its tools are used, word for word what the
+  `contract`, `sign`, `route-document`, `cma`, `forms`, `signers`, `deal`, `agreement-terms`, `migrate`): what that work needs before it starts and how its tools are used, word for word what the
   server's `load_skill` tool answers for it. A skill whose work runs in TurboOffice's own assistant says so, and
   Claude hands that work over with `work_on`.
 

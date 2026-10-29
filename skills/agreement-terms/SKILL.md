@@ -1,5 +1,5 @@
 ---
-name: pricing
+name: agreement-terms
 description: "In TurboOffice, a deal's pricing and its agreement's period: move a listing or a buy deal to another pricing plan, adjust its commission or a fee, extend or shorten the listing or engagement period, or draft a new agreement rather than an amendment — \"move the Kaden listing to the 2.5% plan\", \"drop Kaden's commission to 2.75\", \"extend the listing through March\", \"the sellers want a new listing agreement, not an amendment\""
 ---
 
