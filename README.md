@@ -12,9 +12,11 @@ people waits as a card for your approval. Signing always happens in TurboOffice.
 
 - `skills/turbooffice/SKILL.md`: when Claude should use TurboOffice, and the same guidance the TurboOffice server
   gives every assistant.
-- `skills/<name>/SKILL.md`, one per kind of work (`change`, `termination`, `correct-record`, `signers`, `deal`,
-  `pricing`, `closed-deal`, `migrate`): what that work needs before it starts and how its tools are used, word for
-  word what the server's `load_skill` tool answers for it.
+- `skills/<name>/SKILL.md`, one per kind of work, the same catalog TurboOffice's own assistant works from (`offer`,
+  `change`, `termination`, `sign`, `route-document`, `correct-record`, `cma`, `forms`, `signers`, `deal`, `pricing`,
+  `closed-deal`, `migrate`): what that work needs before it starts and how its tools are used, word for word what the
+  server's `load_skill` tool answers for it. A skill whose work runs in TurboOffice's own assistant says so, and
+  Claude hands that work over with `work_on`.
 
 Every skill file is generated from the server and never edited by hand.
 - `.mcp.json`: the TurboOffice connector, a remote MCP server at `https://turbooffice.ai/mcp`.

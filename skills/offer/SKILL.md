@@ -1,0 +1,8 @@
+---
+name: offer
+description: "In TurboOffice, an offer on a property — from our buyer, or written up on the caller's own listing — \"offer on 155 Main St, 540k, 10-day DD, close in 30\""
+---
+
+An offer on a property — from our buyer, or written up on the caller's own listing. It needs the property, and an address is enough: the buyer need not have a deal yet, and a new address is the normal case. `work_on` mints the empty offer envelope; the drafter that follows researches the property, loads the forms for its state, carries the brokerage's own offer reference when one is on file, and fills the terms from the user's request — the terms are the drafter's to elicit, not yours — so start as soon as it is clear an offer is wanted. Pass `dealId` when the buyer already has a buy deal among the person's deals for this purchase — the request names its buyers, or the deal already names this property — or when the offer is on the caller's own listing — a listing agent writing it up for a buyer with no agent, or for a cooperating agent: then `dealId` is that listing, the seller is the caller's client, and the drafter reads the listing's documents on file (a seller disclosure already signed there is the offer's exhibit) and asks who represents the buyer. Otherwise the offer starts on its own, and the drafter asks who the buyers are. When you draft for agents, the offer is one agent's paper: `forUserId` names them. Refused on a closed deal.
+
+Its work runs in Turbo Office's own assistant, not here: hand it to `work_on` with the person's words and what you know (`request`; `dealId` when you know the deal; `threadId` to say more on a thread it started). Where this guide names `work_on` with arguments, put them in the request's words.
