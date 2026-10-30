@@ -96,7 +96,7 @@
         "commerce_description": "The plugin does not offer purchases or process payments. It connects to an existing TurboOffice account."
       },
       "publication": {
-        "release_notes": "Initial OpenAI package: connect to TurboOffice through OAuth, read deals and documents, manage tasks and appointments, and prepare real estate paperwork using nine bundled workflow guides.",
+        "release_notes": "Initial OpenAI package: connect to TurboOffice through OAuth, read deals and documents, manage tasks and appointments, and prepare real estate paperwork with bundled workflow guides.",
         "countries": [
           "US"
         ]
