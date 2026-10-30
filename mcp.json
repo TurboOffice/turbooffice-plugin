@@ -3,7 +3,23 @@
   "mcpServers": {
     "turbooffice": {
       "type": "streamable-http",
-      "url": "https://turbooffice.ai/mcp"
+      "url": "https://turbooffice.ai/mcp",
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth",
+            "client": {
+              "mode": "dcr"
+            },
+            "defaultScopes": [
+              "work:read",
+              "work:write",
+              "agent:run",
+              "cards:approve"
+            ]
+          }
+        }
+      }
     }
   }
 }
