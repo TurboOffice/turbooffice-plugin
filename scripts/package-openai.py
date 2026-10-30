@@ -5,6 +5,8 @@ import argparse
 import json
 import re
 import shutil
+import subprocess
+import sys
 import zipfile
 from pathlib import Path
 
@@ -12,6 +14,8 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("output", type=Path, help="Directory outside this repository for the copy and ZIP")
 args = parser.parse_args()
 source = Path(__file__).resolve().parents[1]
+if subprocess.run([sys.executable, str(source / "scripts/sync-manifests.py"), "--check"]).returncode:
+    parser.error("Claude manifests are stale; run scripts/sync-manifests.py first")
 output = args.output.resolve()
 if output == source or source in output.parents:
     parser.error("Output must be outside the plugin repository")
