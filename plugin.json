@@ -96,7 +96,7 @@
         "commerce_description": "The plugin does not offer purchases or process payments. It connects to an existing TurboOffice account."
       },
       "publication": {
-        "release_notes": "What's new in 1.1: When you ask about a deal, ChatGPT now sees who is on each piece of paper and which offer it belongs to, so it can tell you where an offer stands before anyone has signed. A draft opens as it stands, with what has been filled in so far. Sending feedback to the TurboOffice team is your call: ChatGPT offers it when something does not work and sends it only when you say so. Preparing a signed offer for the other side's signatures is named for what it does: it prepares the signing packet, and nothing goes out until you send it.",
+        "release_notes": "What's new in 1.1: When asked about a deal, ChatGPT now sees who is on each piece of paper and which offer it belongs to, so it can say where an offer stands before anyone has signed. A draft opens as it stands, with what has been filled in so far. Feedback to the TurboOffice team is sent only when the agent asks for it; ChatGPT offers it when something does not work. Preparing a signed offer for the other side's signatures prepares the signing packet; nothing goes out until the agent sends it.",
         "countries": [
           "US"
         ]
