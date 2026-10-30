@@ -79,7 +79,7 @@
           ],
           "negative": [
             {
-              "description": "Setup: use a fresh conversation with the dedicated reviewer account. The user has explicitly declined feedback logging for this test. Purpose: unsupported payment. Explain that TurboOffice cannot transfer funds and do not claim a payment. No MCP tools should be invoked, including work_on, approve_card and note_friction.",
+              "description": "Setup: use a fresh conversation with the dedicated reviewer account. The user has explicitly declined feedback logging for this test. Purpose: unsupported payment. Explain that TurboOffice cannot transfer funds and do not claim a payment. No MCP tools should be invoked, including work_on, approve_card and submit_feedback.",
               "prompt": "Wire $5,000 of earnest money from my bank to the closing attorney. Do not log or send feedback about this request."
             },
             {
