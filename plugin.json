@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "turbooffice",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": {
     "name": "TurboOffice Technologies, Inc.",
     "email": "parker@turbooffice.ai",
@@ -96,7 +96,7 @@
         "commerce_description": "The plugin does not offer purchases or process payments. It connects to an existing TurboOffice account."
       },
       "publication": {
-        "release_notes": "Initial OpenAI package: connect to TurboOffice through OAuth, read deals and documents, manage tasks and appointments, and prepare real estate paperwork with bundled workflow guides.",
+        "release_notes": "1.1.0: submit_feedback (the user's note to the team, sent only when they say so) replaces note_friction; prepare_for_their_signatures replaces send_for_their_signatures; envelope reads name who is seated and the offer each envelope belongs to; a draft's documents are served as they stand.",
         "countries": [
           "US"
         ]
