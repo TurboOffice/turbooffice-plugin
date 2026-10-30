@@ -41,7 +41,7 @@
       "review": {
         "prompts": [
           "What's on my plate across my deals today?",
-          "Find my buyer deal with an offer and show me where the offer and counteroffer stand.",
+          "Find my listing on Oxford Rd and tell me where the Brooks offer stands.",
           "Show me the files on this deal and summarize the first filed PDF."
         ],
         "test_cases": {
@@ -53,10 +53,10 @@
               "expected_behavior": "Call my_work. Summarize only the returned work, dates and who owes each next action; include returned TurboOffice links. Do not invent missing dates, complete tasks or approve cards."
             },
             {
-              "description": "Purpose: find a deal and inspect its offer history. Setup: a dedicated reviewer account with a buyer deal containing an offer and a counteroffer. If multiple buyer deals match, ask which one.",
-              "prompt": "Find my buyer deal with an offer and show me where the offer and counteroffer stand.",
-              "tools_triggered": "search_deals, get_deal, get_offer_chain",
-              "expected_behavior": "Use search_deals to find the buyer deal, get_deal with its returned dealId, and get_offer_chain with an offerId returned for that deal. Report which paper is current and who has signed from the results, with returned links. Ask for clarification when ambiguous; do not change or accept any paper."
+              "description": "Purpose: find a deal and read where its offer stands. Setup: the dedicated reviewer account's listing at 1270 Oxford Rd NE, Atlanta has an unsent offer drafted for unrepresented buyers Riley and Sam Brooks. If several deals match, ask which one.",
+              "prompt": "Find my listing on Oxford Rd and tell me where the Brooks offer stands.",
+              "tools_triggered": "search_deals, get_deal",
+              "expected_behavior": "Use search_deals to find the listing, then get_deal with its returned dealId. Report from the results that the offer is a draft that has not been sent and that nobody has signed it, with the returned links. Do not send, change or accept any paper."
             },
             {
               "description": "Purpose: read a filed document. Setup: the dedicated reviewer's chosen deal has a filed PDF. In the preceding turn choose that deal through search_deals and get_deal, retaining its returned dealId.",
@@ -71,8 +71,8 @@
               "expected_behavior": "Call act_on_task with action.intent add, action.dealId set to the selected deal, action.title 'Submission check: order photos', and action.dueOn set to tomorrow in YYYY-MM-DD on the deal's calendar. Report the returned task and due day. After the explicit undo turn, call it with action.intent skip and the returned action.taskId. Confirm the result. Do not schedule an appointment, send an email or approve a card."
             },
             {
-              "description": "Purpose: hand drafting to TurboOffice and wait for the result. Setup: a dedicated reviewer with GA form entitlements and a buyer deal for fictional Jordan and Casey Harper. Select that deal first; its clients have reviewer-controlled addresses. No send or approval is authorized.",
-              "prompt": "Draft an offer for Jordan and Casey Harper on 155 Main St, Atlanta, Georgia at $540,000, with 10 days of due diligence and closing in 30 days. Ask me for anything else you need. Leave it as a draft.",
+              "description": "Purpose: hand drafting to TurboOffice and wait for the result. Setup: the dedicated reviewer account has GA form entitlements and a buyer deal for fictional Jordan and Casey Harper; select that deal first. Their addresses are ours. No send or approval is authorized.",
+              "prompt": "Draft an offer for Jordan and Casey Harper on 3120 Rockingham Dr NW, Atlanta, GA 30327 at $540,000, with 10 days of due diligence and closing in 30 days. Ask me for anything else you need. Leave it as a draft.",
               "tools_triggered": "work_on, get_thread",
               "expected_behavior": "Pass the request and selected dealId to work_on. If its status is running, call get_thread with the returned threadId until it finishes or asks a question. Show its draft or question and returned links. Do not invent a completed document, call approve_card, send paper or sign for anyone."
             }
