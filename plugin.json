@@ -96,7 +96,7 @@
         "commerce_description": "The plugin does not offer purchases or process payments. It connects to an existing TurboOffice account."
       },
       "publication": {
-        "release_notes": "1.1.1: the three negative review cases are near-misses (a Georgia contract question, a listing description, a mortgage payment) rather than adversarial asks. 1.1.0: submit_feedback (the user's note to the team, sent only when they say so) replaces note_friction; prepare_for_their_signatures replaces send_for_their_signatures; envelope reads name who is seated and the offer each envelope belongs to; a draft's documents are served as they stand.",
+        "release_notes": "TurboOffice in ChatGPT. Ask what needs attention across your listings and buyer deals, where an offer stands and who has signed, and read the documents on file. Keep tasks, appointments and notes. Ask TurboOffice to draft offers, counteroffers, amendments and forms from your brokerage's library; every draft is reviewed and sent from TurboOffice, and anything that binds a contract waits for your approval. Signing stays in TurboOffice. You need a TurboOffice account at a brokerage with connected apps turned on.",
         "countries": [
           "US"
         ]
