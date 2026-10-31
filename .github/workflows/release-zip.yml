@@ -12,13 +12,13 @@ jobs:
       - uses: actions/checkout@v4
       - name: Package the plugin
         run: |
-          python3 scripts/package-openai.py "$RUNNER_TEMP/plugin"
-          mv "$RUNNER_TEMP"/plugin/*.zip "$RUNNER_TEMP/turbooffice-plugin.zip"
-          git archive --format=zip -o "$RUNNER_TEMP/turbooffice-plugin-claude.zip" HEAD .claude-plugin .mcp.json skills LICENSE
+          python3 scripts/sync-manifests.py --check
+          git archive --format=zip -o "$RUNNER_TEMP/turbooffice-plugin.zip" HEAD \
+            plugin.json mcp.json .mcp.json .claude-plugin .cursor-plugin skills assets LICENSE
       - name: Attach it to the current version's release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           tag="v$(python3 -c 'import json; print(json.load(open("plugin.json"))["version"])')"
           gh release view "$tag" >/dev/null 2>&1 || gh release create "$tag" --target "$GITHUB_SHA" --title "$tag" --notes "TurboOffice plugin $tag"
-          gh release upload "$tag" "$RUNNER_TEMP/turbooffice-plugin.zip" "$RUNNER_TEMP/turbooffice-plugin-claude.zip" --clobber
+          gh release upload "$tag" "$RUNNER_TEMP/turbooffice-plugin.zip" --clobber

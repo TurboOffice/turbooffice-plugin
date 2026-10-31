@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Write the Claude manifests from the portable plugin.json and mcp.json, or check that they match.
+"""Write the Claude and Cursor manifests from the portable plugin.json and mcp.json, or check that they match.
 
 The portable manifests own every fact the hosts share: name, version, publisher, links, keywords, icon and the
 server URL. Host-specific copy, such as the Claude listing's description, stays in the host's own file.
@@ -47,19 +47,31 @@ claude_mcp = {
     }
 }
 
+cursor = {
+    "name": manifest["name"],
+    "displayName": interface["displayName"],
+    **{key: manifest[key] for key in ("version", "description", "author", "homepage", "repository", "license", "keywords")},
+    "logo": interface["logo"],
+    "mcpServers": "./.mcp.json",
+}
+
 derived = {
+    Path(".cursor-plugin/plugin.json"): dump(cursor).encode(),
     Path(".claude-plugin/plugin.json"): dump(claude).encode(),
     Path(".claude-plugin/marketplace.json"): dump(marketplace).encode(),
     Path(".mcp.json"): dump(claude_mcp).encode(),
     Path(".claude-plugin/icon.png"): (root / interface["logo"]).read_bytes(),
 }
 
-stale = [path for path, content in derived.items() if (root / path).read_bytes() != content]
+stale = [
+    path for path, content in derived.items() if not (root / path).exists() or (root / path).read_bytes() != content
+]
 if args.check:
     for path in stale:
         print(f"{path} differs from plugin.json/mcp.json; run scripts/sync-manifests.py", file=sys.stderr)
     sys.exit(1 if stale else 0)
 for path in stale:
+    (root / path).parent.mkdir(exist_ok=True)
     (root / path).write_bytes(derived[path])
     print(f"wrote {path}")
-print("Claude manifests match plugin.json and mcp.json")
+print("Host manifests match plugin.json and mcp.json")

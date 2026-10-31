@@ -25,7 +25,8 @@ Every skill file is generated from the server and never edited by hand.
 
 `plugin.json` and `mcp.json` at the root are the portable manifests and own every fact the hosts share: name,
 version, publisher, links, keywords, icon and the server URL. `scripts/sync-manifests.py` writes
-`.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `.claude-plugin/icon.png` and `.mcp.json` from them;
+`.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `.claude-plugin/icon.png`, `.cursor-plugin/plugin.json`
+and `.mcp.json` from them;
 `--check` fails when one differs, and runs on every push. Edit the root files, then run the script. Each host's
 listing description stays in that host's own file.
 
@@ -69,10 +70,9 @@ The export includes the portable manifests, generated skills, icon and license. 
 compatibility manifests, Git files and preparation scripts. Do not submit the draft until its review materials
 and server checks are complete. The monorepo's `docs/mcp/directory-readiness.md` tracks the remaining work.
 
-Every push to `main` also attaches two ZIPs to the release for the current version
-(`.github/workflows/release-zip.yml`): `turbooffice-plugin.zip`, the same export, which the docs link to at
-`releases/latest/download/turbooffice-plugin.zip`, and `turbooffice-plugin-claude.zip`, with Claude's manifests at its
-root.
+That export is for OpenAI's submission. Separately, every push to `main` attaches one `turbooffice-plugin.zip` to the
+release for the current version (`.github/workflows/release-zip.yml`), with every host's manifests at its root. The docs
+link to it at `releases/latest/download/turbooffice-plugin.zip`.
 
 ## Help
 

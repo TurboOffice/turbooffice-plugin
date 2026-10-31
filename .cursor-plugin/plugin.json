@@ -1,0 +1,23 @@
+{
+  "name": "turbooffice",
+  "displayName": "TurboOffice",
+  "version": "1.1.1",
+  "description": "TurboOffice connects real estate agents to their brokerage's listings and buyer deals from agreement through closing.",
+  "author": {
+    "name": "TurboOffice Technologies, Inc.",
+    "email": "parker@turbooffice.ai",
+    "url": "https://turbooffice.ai"
+  },
+  "homepage": "https://turbooffice.ai/docs",
+  "repository": "https://github.com/TurboOffice/turbooffice-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "real-estate",
+    "transactions",
+    "offers",
+    "contracts",
+    "brokerage"
+  ],
+  "logo": "./assets/icon.png",
+  "mcpServers": "./.mcp.json"
+}
