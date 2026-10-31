@@ -6,16 +6,16 @@ on:
 permissions:
   contents: read
   id-token: write
+# Runs in order, so an older push cannot finish last and overwrite a newer one's files.
+concurrency:
+  group: publish-zip
+  cancel-in-progress: false
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: arn:aws:iam::720180693798:role/to-prod-plugin-publish-role
-          aws-region: us-east-1
-      - name: Package the plugin per host and publish
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Package the plugin per host
         run: |
           python3 scripts/sync-manifests.py --check
           out="$RUNNER_TEMP/zips"
@@ -24,5 +24,11 @@ jobs:
           mv "$RUNNER_TEMP"/openai/*.zip "$out/turbooffice-plugin-chatgpt.zip"
           git archive --format=zip -o "$out/turbooffice-plugin-claude.zip" HEAD .claude-plugin .mcp.json skills LICENSE
           git archive --format=zip -o "$out/turbooffice-plugin-cursor.zip" HEAD .cursor-plugin .mcp.json skills assets LICENSE
-          aws s3 cp "$out" s3://public-assets-to-prod/downloads/plugin/ --recursive \
+      - uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4
+        with:
+          role-to-assume: arn:aws:iam::720180693798:role/to-prod-plugin-publish-role
+          aws-region: us-east-1
+      - name: Publish
+        run: |
+          aws s3 cp "$RUNNER_TEMP/zips" s3://public-assets-to-prod/downloads/plugin/ --recursive \
             --content-type application/zip --cache-control "public, max-age=300"

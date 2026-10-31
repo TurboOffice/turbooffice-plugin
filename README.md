@@ -34,8 +34,8 @@ listing description stays in that host's own file.
 
 Nothing runs on your computer. Claude calls the TurboOffice server at `https://turbooffice.ai/mcp` after you sign in
 with your TurboOffice account and allow access on its consent page (OAuth). TurboOffice receives the requests Claude
-sends to its tools. When a request gets stuck, Claude sends the TurboOffice team a short note saying what you wanted,
-and tells you it did. TurboOffice does not receive the rest of your conversation.
+sends to its tools. When a request gets stuck, Claude can offer to send the TurboOffice team a short note saying what you
+wanted. The note goes only if you say so. TurboOffice does not receive the rest of your conversation.
 
 ## Install
 
@@ -73,7 +73,7 @@ and server checks are complete. The monorepo's `docs/mcp/directory-readiness.md`
 Every push to `main` also publishes one ZIP per host to `https://assets.turbooffice.ai/downloads/plugin/`
 (`.github/workflows/publish-zip.yml`), assuming an AWS role through GitHub's OIDC, so the repository holds no AWS keys:
 `turbooffice-plugin-chatgpt.zip` (this export), `turbooffice-plugin-claude.zip` (Claude's manifests at the root) and
-`turbooffice-plugin-cursor.zip` (Cursor's manifest at the root, also for Grok Bot and Grok Build).
+`turbooffice-plugin-cursor.zip` (Cursor's manifest at the root).
 
 ## Help
 
