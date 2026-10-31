@@ -49,7 +49,7 @@ Then connect the TurboOffice connector and sign in. The steps are at https://tur
 
 ## Requirements
 
-A TurboOffice account at a brokerage that has connecting apps turned on. No account yet? Request access at
+A TurboOffice account. No account yet? Request access at
 https://turbooffice.ai/request-access.
 
 ## OpenAI submission preparation
