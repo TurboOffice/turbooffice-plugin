@@ -70,9 +70,9 @@ The export includes the portable manifests, generated skills, icon and license. 
 compatibility manifests, Git files and preparation scripts. Do not submit the draft until its review materials
 and server checks are complete. The monorepo's `docs/mcp/directory-readiness.md` tracks the remaining work.
 
-That export is for OpenAI's submission. Separately, every push to `main` attaches one `turbooffice-plugin.zip` to the
-release for the current version (`.github/workflows/release-zip.yml`), with every host's manifests at its root. The docs
-link to it at `releases/latest/download/turbooffice-plugin.zip`.
+That export is for OpenAI's submission. Separately, every push to `main` publishes one ZIP with every host's manifests at
+its root to `https://assets.turbooffice.ai/downloads/plugin/turbooffice-plugin.zip` (`.github/workflows/publish-zip.yml`),
+assuming an AWS role through GitHub's OIDC, so the repository holds no AWS keys.
 
 ## Help
 
