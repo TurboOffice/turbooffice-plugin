@@ -15,10 +15,14 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::720180693798:role/to-prod-plugin-publish-role
           aws-region: us-east-1
-      - name: Package the plugin and publish it
+      - name: Package the plugin per host and publish
         run: |
           python3 scripts/sync-manifests.py --check
-          git archive --format=zip -o "$RUNNER_TEMP/turbooffice-plugin.zip" HEAD \
-            plugin.json mcp.json .mcp.json .claude-plugin .cursor-plugin skills assets LICENSE
-          aws s3 cp "$RUNNER_TEMP/turbooffice-plugin.zip" s3://public-assets-to-prod/downloads/plugin/turbooffice-plugin.zip \
+          out="$RUNNER_TEMP/zips"
+          mkdir "$out"
+          python3 scripts/package-openai.py "$RUNNER_TEMP/openai"
+          mv "$RUNNER_TEMP"/openai/*.zip "$out/turbooffice-plugin-chatgpt.zip"
+          git archive --format=zip -o "$out/turbooffice-plugin-claude.zip" HEAD .claude-plugin .mcp.json skills LICENSE
+          git archive --format=zip -o "$out/turbooffice-plugin-cursor.zip" HEAD .cursor-plugin .mcp.json skills assets LICENSE
+          aws s3 cp "$out" s3://public-assets-to-prod/downloads/plugin/ --recursive \
             --content-type application/zip --cache-control "public, max-age=300"
