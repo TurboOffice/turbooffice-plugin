@@ -69,9 +69,10 @@ The export includes the portable manifests, generated skills, icon and license. 
 compatibility manifests, Git files and preparation scripts. Do not submit the draft until its review materials
 and server checks are complete. The monorepo's `docs/mcp/directory-readiness.md` tracks the remaining work.
 
-Every push to `main` also attaches the same export to the release for the current version, as
-`turbooffice-plugin.zip` (`.github/workflows/release-zip.yml`). The docs link to it at
-`releases/latest/download/turbooffice-plugin.zip`.
+Every push to `main` also attaches two ZIPs to the release for the current version
+(`.github/workflows/release-zip.yml`): `turbooffice-plugin.zip`, the same export, which the docs link to at
+`releases/latest/download/turbooffice-plugin.zip`, and `turbooffice-plugin-claude.zip`, with Claude's manifests at its
+root.
 
 ## Help
 
