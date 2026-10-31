@@ -5,19 +5,30 @@
   "description": "TurboOffice connects real estate agents to their brokerage's listings and buyer deals from agreement through closing.",
   "author": {
     "name": "TurboOffice Technologies, Inc.",
-    "email": "parker@turbooffice.ai",
-    "url": "https://turbooffice.ai"
+    "email": "parker@turbooffice.ai"
   },
   "homepage": "https://turbooffice.ai/docs",
   "repository": "https://github.com/TurboOffice/turbooffice-plugin",
   "license": "Apache-2.0",
   "keywords": [
+    "turbooffice",
     "real-estate",
     "transactions",
     "offers",
     "contracts",
-    "brokerage"
+    "brokerage",
+    "mcp"
   ],
   "logo": "./assets/icon.png",
+  "category": "integrations",
+  "tags": [
+    "turbooffice",
+    "real-estate",
+    "transactions",
+    "offers",
+    "contracts",
+    "brokerage",
+    "mcp"
+  ],
   "mcpServers": "./.mcp.json"
 }

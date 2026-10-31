@@ -47,11 +47,16 @@ claude_mcp = {
     }
 }
 
+# Cursor's schema (cursor/plugins/schemas/plugin.schema.json) closes every object: author takes name and email only.
 cursor = {
     "name": manifest["name"],
     "displayName": interface["displayName"],
-    **{key: manifest[key] for key in ("version", "description", "author", "homepage", "repository", "license", "keywords")},
+    **{key: manifest[key] for key in ("version", "description")},
+    "author": {"name": author["name"], "email": author["email"]},
+    **{key: manifest[key] for key in ("homepage", "repository", "license", "keywords")},
     "logo": interface["logo"],
+    "category": "integrations",
+    "tags": manifest["keywords"],
     "mcpServers": "./.mcp.json",
 }
 

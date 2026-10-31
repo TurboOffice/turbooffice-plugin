@@ -1,9 +1,9 @@
-# TurboOffice for Claude
+# TurboOffice plugin
 
 TurboOffice is the platform real estate brokerages and their agents use to run listings and buyer deals from the
-agreement through closing. This plugin connects Claude to it.
+agreement through closing. This plugin connects Claude, Cursor and Grok Bot to it; the same package is the ChatGPT app.
 
-With the plugin, Claude can read your deals, offers and their counters and amendments, the documents on file, your
+With the plugin, your assistant can read your deals, offers and their counters and amendments, the documents on file, your
 tasks and key dates, and what each deal still needs. It can keep your tasks, appointments and notes, and hand
 drafting to TurboOffice's own assistant. Anything that binds or ends a contract or sends paper for signatures waits as a card for your approval.
 Starting a listing or preparing its seller disclosure can email the sellers an invitation to complete it.
@@ -11,12 +11,12 @@ Signing always happens in TurboOffice.
 
 ## What is in it
 
-- `skills/turbooffice/SKILL.md`: when Claude should use TurboOffice, and the same guidance the TurboOffice server
+- `skills/turbooffice/SKILL.md`: when the assistant should use TurboOffice, and the same guidance the TurboOffice server
   gives every assistant.
 - `skills/<name>/SKILL.md`, one per kind of work, the same catalog TurboOffice's own assistant works from (`offer`,
   `contract`, `sign`, `route-document`, `cma`, `forms`, `signers`, `deal`, `agreement-terms`, `migrate`): what that work needs before it starts and how its tools are used, word for word what the
   server's `load_skill` tool answers for it. A skill whose work runs in TurboOffice's own assistant says so, and
-  Claude hands that work over with `work_on`.
+  the assistant hands that work over with `work_on`.
 
 Every skill file is generated from the server and never edited by hand.
 - `.mcp.json`: the TurboOffice connector, a remote MCP server at `https://turbooffice.ai/mcp`.
@@ -32,12 +32,14 @@ listing description stays in that host's own file.
 
 ## What it runs, sends and fetches
 
-Nothing runs on your computer. Claude calls the TurboOffice server at `https://turbooffice.ai/mcp` after you sign in
-with your TurboOffice account and allow access on its consent page (OAuth). TurboOffice receives the requests Claude
-sends to its tools. When a request gets stuck, Claude can offer to send the TurboOffice team a short note saying what you
+Nothing runs on your computer. Your assistant calls the TurboOffice server at `https://turbooffice.ai/mcp` after you sign in
+with your TurboOffice account and allow access on its consent page (OAuth). TurboOffice receives the requests the assistant
+sends to its tools. When a request gets stuck, the assistant can offer to send the TurboOffice team a short note saying what you
 wanted. The note goes only if you say so. TurboOffice does not receive the rest of your conversation.
 
 ## Install
+
+### Claude
 
 In Claude (chat, Cowork or Claude Code), add TurboOffice from the directory, or in Claude Code run:
 
@@ -46,6 +48,14 @@ In Claude (chat, Cowork or Claude Code), add TurboOffice from the directory, or 
 ```
 
 Then connect the TurboOffice connector and sign in. The steps are at https://turbooffice.ai/docs/connect/claude.
+
+### Cursor and Grok Bot
+
+1. Open **Settings → Plugins** (in Grok Bot, **Plugins**).
+2. Search for **TurboOffice** and click **Install** (in Cursor chat, `/add-plugin turbooffice` does the same).
+3. Sign in with your TurboOffice account when the `turbooffice` server prompts, and allow access.
+
+The MCP server is remote and uses OAuth; no keys to set. Every other host: https://turbooffice.ai/docs/connect/other.
 
 ## Requirements
 
