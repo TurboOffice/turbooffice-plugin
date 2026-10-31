@@ -1,0 +1,23 @@
+name: Release ZIP
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Package the plugin
+        run: |
+          python3 scripts/package-openai.py "$RUNNER_TEMP/plugin"
+          mv "$RUNNER_TEMP"/plugin/*.zip "$RUNNER_TEMP/turbooffice-plugin.zip"
+      - name: Attach it to the current version's release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="v$(python3 -c 'import json; print(json.load(open("plugin.json"))["version"])')"
+          gh release view "$tag" >/dev/null 2>&1 || gh release create "$tag" --target "$GITHUB_SHA" --title "$tag" --notes "TurboOffice plugin $tag"
+          gh release upload "$tag" "$RUNNER_TEMP/turbooffice-plugin.zip" --clobber
