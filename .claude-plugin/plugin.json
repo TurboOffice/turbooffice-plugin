@@ -1,6 +1,6 @@
 {
   "name": "turbooffice",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Work your real estate deals in TurboOffice from Claude: offers, contracts, documents, tasks and what each deal still needs. Anything that commits you waits for your approval.",
   "author": {
     "name": "TurboOffice Technologies, Inc.",
@@ -20,5 +20,5 @@
     "mcp"
   ],
   "privacyPolicyUrl": "https://turbooffice.ai/privacy",
-  "icon": ".claude-plugin/icon.png"
+  "icon": "./assets/icon.png"
 }

@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.2
+
+- Claude's listing uses the same icon file as the other hosts, and nothing in the plugin keeps a second copy.
+- The Claude ZIP includes the icon.
+
 ## 1.1.1
 
 - Review materials for the ChatGPT listing.

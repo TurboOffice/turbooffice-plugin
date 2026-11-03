@@ -22,7 +22,7 @@ jobs:
           mkdir "$out"
           python3 scripts/package-openai.py "$RUNNER_TEMP/openai"
           mv "$RUNNER_TEMP"/openai/*.zip "$out/turbooffice-plugin-chatgpt.zip"
-          git archive --format=zip -o "$out/turbooffice-plugin-claude.zip" HEAD .claude-plugin .mcp.json skills LICENSE
+          git archive --format=zip -o "$out/turbooffice-plugin-claude.zip" HEAD .claude-plugin .mcp.json skills assets LICENSE
           git archive --format=zip -o "$out/turbooffice-plugin-cursor.zip" HEAD .cursor-plugin .mcp.json skills assets LICENSE
       - uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4
         with:

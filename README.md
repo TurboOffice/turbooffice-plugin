@@ -25,8 +25,8 @@ Every skill file is generated from the server and never edited by hand.
 
 `plugin.json` and `mcp.json` at the root are the portable manifests and own every fact the hosts share: name,
 version, publisher, links, keywords, icon and the server URL. `scripts/sync-manifests.py` writes
-`.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `.claude-plugin/icon.png`, `.cursor-plugin/plugin.json`
-and `.mcp.json` from them;
+`.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `.cursor-plugin/plugin.json` and `.mcp.json` from
+them;
 `--check` fails when one differs, and runs on every push. Edit the root files, then run the script. Each host's
 listing description stays in that host's own file.
 

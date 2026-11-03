@@ -32,6 +32,7 @@ claude = load(".claude-plugin/plugin.json")
 for key in ("name", "version", "author", "homepage", "repository", "license", "keywords"):
     claude[key] = manifest[key]
 claude["privacyPolicyUrl"] = interface["privacyPolicyURL"]
+claude["icon"] = interface["logo"]
 
 marketplace = load(".claude-plugin/marketplace.json")
 marketplace["name"] = manifest["name"]
@@ -65,7 +66,6 @@ derived = {
     Path(".claude-plugin/plugin.json"): dump(claude).encode(),
     Path(".claude-plugin/marketplace.json"): dump(marketplace).encode(),
     Path(".mcp.json"): dump(claude_mcp).encode(),
-    Path(".claude-plugin/icon.png"): (root / interface["logo"]).read_bytes(),
 }
 
 stale = [
