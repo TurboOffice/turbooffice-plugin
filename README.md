@@ -1,93 +1,24 @@
 # TurboOffice plugin
 
-TurboOffice is the platform real estate brokerages and their agents use to run listings and buyer deals from the
-agreement through closing. This plugin connects Claude, Cursor and Grok Bot to it; the same package is the ChatGPT app.
+TurboOffice is a platform real estate agents and brokerages use to run listings and buyer deals from the agreement
+through closing. This plugin connects your AI assistant to your TurboOffice account, so it can read your deals,
+documents, tasks and key dates, and help with the work on them. Anything that binds a contract or sends documents
+for signatures waits for your approval, and signing happens in TurboOffice.
 
-With the plugin, your assistant can read your deals, offers and their counters and amendments, the documents on file, your
-tasks and key dates, and what each deal still needs. It can keep your tasks, appointments and notes, and hand
-drafting to TurboOffice's own assistant. Anything that binds or ends a contract or sends paper for signatures waits as a card for your approval.
-Starting a listing or preparing its seller disclosure can email the sellers an invitation to complete it.
-Signing always happens in TurboOffice.
+The plugin holds the TurboOffice MCP server (`https://turbooffice.ai/mcp`) and a set of skills. Nothing runs on your
+computer. You sign in with your TurboOffice account through OAuth.
 
-## What is in it
+## Connecting
 
-- `skills/turbooffice/SKILL.md`: when the assistant should use TurboOffice, and the same guidance the TurboOffice server
-  gives every assistant.
-- `skills/<name>/SKILL.md`, one per kind of work, the same catalog TurboOffice's own assistant works from (`offer`,
-  `contract`, `sign`, `route-document`, `cma`, `forms`, `signers`, `deal`, `agreement-terms`, `migrate`): what that work needs before it starts and how its tools are used, word for word what the
-  server's `load_skill` tool answers for it. A skill whose work runs in TurboOffice's own assistant says so, and
-  the assistant hands that work over with `work_on`.
-
-Every skill file is generated from the server and never edited by hand.
-- `.mcp.json`: the TurboOffice connector, a remote MCP server at `https://turbooffice.ai/mcp`.
-
-## Manifests
-
-`plugin.json` and `mcp.json` at the root are the portable manifests and own every fact the hosts share: name,
-version, publisher, links, keywords, icon and the server URL. `scripts/sync-manifests.py` writes
-`.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `.cursor-plugin/plugin.json` and `.mcp.json` from
-them;
-`--check` fails when one differs, and runs on every push. Edit the root files, then run the script. Each host's
-listing description stays in that host's own file.
-
-## What it runs, sends and fetches
-
-Nothing runs on your computer. Your assistant calls the TurboOffice server at `https://turbooffice.ai/mcp` after you sign in
-with your TurboOffice account and allow access on its consent page (OAuth). TurboOffice receives the requests the assistant
-sends to its tools. When a request gets stuck, the assistant can offer to send the TurboOffice team a short note saying what you
-wanted. The note goes only if you say so. TurboOffice does not receive the rest of your conversation.
-
-## Install
-
-### Claude
-
-In Claude (chat, Cowork or Claude Code), add TurboOffice from the directory, or in Claude Code run:
-
-```
-/plugin install turbooffice --marketplace TurboOffice/turbooffice-plugin
-```
-
-Then connect the TurboOffice connector and sign in. The steps are at https://turbooffice.ai/docs/connect/claude.
-
-### Cursor and Grok Bot
-
-1. Open **Settings → Plugins** (in Grok Bot, **Plugins**).
-2. Search for **TurboOffice** and click **Install** (in Cursor chat, `/add-plugin turbooffice` does the same).
-3. Sign in with your TurboOffice account when the `turbooffice` server prompts, and allow access.
-
-The MCP server is remote and uses OAuth; no keys to set. Every other host: https://turbooffice.ai/docs/connect/other.
+See https://turbooffice.ai/docs for how to connect your assistant.
 
 ## Requirements
 
-A TurboOffice account. No account yet? Request access at
-https://turbooffice.ai/request-access.
-
-## OpenAI submission preparation
-
-The portable `plugin.json` and `mcp.json` describe the OpenAI package. Its skills are the same generated files
-used by Claude. The OpenAI listing includes draft review cases; they are not a record of passed tests.
-The publisher is TurboOffice Technologies, Inc.; availability is US-only, with no purchases or payments in the plugin.
-The demo recording and portal publisher verification remain incomplete.
-Reviewer credentials belong only in the secure submission portal, never in this repository or an archive.
-
-To export a separate upload copy and ZIP, choose a fresh directory outside this repository:
-
-```bash
-python3 scripts/package-openai.py /absolute/path/to/submission-output
-```
-
-The export includes the portable manifests, generated skills, icon and license. It excludes the Claude marketplace,
-compatibility manifests, Git files and preparation scripts. Do not submit the draft until its review materials
-and server checks are complete. The monorepo's `docs/mcp/directory-readiness.md` tracks the remaining work.
-
-Every push to `main` also publishes one ZIP per host to `https://assets.turbooffice.ai/downloads/plugin/`
-(`.github/workflows/publish-zip.yml`), assuming an AWS role through GitHub's OIDC, so the repository holds no AWS keys:
-`turbooffice-plugin-chatgpt.zip` (this export), `turbooffice-plugin-claude.zip` (Claude's manifests at the root) and
-`turbooffice-plugin-cursor.zip` (Cursor's manifest at the root).
+A TurboOffice account. Request access at https://turbooffice.ai/request-access.
 
 ## Help
 
 - Docs: https://turbooffice.ai/docs
 - Support: parker@turbooffice.ai
-- Privacy policy: https://turbooffice.ai/privacy
+- Privacy: https://turbooffice.ai/privacy
 - Terms: https://turbooffice.ai/terms
