@@ -75,8 +75,8 @@
             {
               "description": "Purpose: hand drafting to TurboOffice and wait for the result. Setup: the dedicated reviewer account has GA form entitlements and a buyer deal for fictional Jordan and Casey Harper; select that deal first. Their addresses are ours. No send or approval is authorized.",
               "prompt": "Draft an offer for Jordan and Casey Harper on 3120 Rockingham Dr NW, Atlanta, GA 30327 at $540,000, with 10 days of due diligence and closing in 30 days. Ask me for anything else you need. Leave it as a draft.",
-              "tools_triggered": "work_on, get_thread",
-              "expected_behavior": "Pass the request and selected dealId to work_on. If its status is running, call get_thread with the returned threadId until it finishes or asks a question. Show its draft or question and returned links. Do not invent a completed document, call approve_card, send paper or sign for anyone."
+              "tools_triggered": "start_offer, get_thread",
+              "expected_behavior": "Call start_offer with the request and the selected dealId. It answers once TurboOffice's drafter has started, naming the draft's envelope and its thread: call get_thread with that threadId until the turn finishes or asks a question. Show its draft or question and returned links. Do not invent a completed document, call approve_card, send paper or sign for anyone."
             }
           ],
           "negative": [
