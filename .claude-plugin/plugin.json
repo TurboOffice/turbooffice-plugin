@@ -20,5 +20,6 @@
     "mcp"
   ],
   "privacyPolicyUrl": "https://turbooffice.ai/privacy",
-  "icon": "./assets/icon.png"
+  "icon": "./assets/icon.png",
+  "supportUrl": "https://turbooffice.ai/docs/support"
 }
