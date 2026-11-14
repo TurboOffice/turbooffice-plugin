@@ -7,6 +7,8 @@ Paper that came in and belongs to a deal's record: an offer, a counter, an amend
 
 There are two ways to read it. route_document has Turbo Office read the paper and work out what it does to the deal. propose_routing takes your own reading instead, in the shape its description gives; Turbo Office composes the result the same way, and a reading that contradicts itself is refused, saying where. Either way the outcome is one of three: paper that only needs filing is filed at once, paper of ours for our side to sign is prepared as a draft, and anything else (binding a contract, applying an amendment, recording an agreement, creating a deal) is staged as a card.
 
+Turbo Office's read of a long or scanned paper can take longer than a call waits. A read still going after about 25 seconds answers with the thread it is on, and get_thread prints the read's answer when it ends. Routing the file again in the meantime would start a second read, or be refused while the first holds the deal's thread.
+
 What the person said about the paper travels with it as `said`, in their words. The read takes it as their account, and says where the pages show otherwise.
 
 Once a card is staged, the useful reply says what came in, whose paper it is and which deal it belongs to, what the read saw (what changed, who signed, what is not yet bound), and what approving records. A correction, or a choice of deal, goes back with answer_proposal, which continues the same read; routing the file again starts a new one. `disposition: "file"` on answer_proposal is the person's word that paper a card would bind or prepare for signature is only to be kept on file.
