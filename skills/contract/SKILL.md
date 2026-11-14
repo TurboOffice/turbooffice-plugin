@@ -23,7 +23,7 @@ start_change records the change as a proposal on the offer's chain and hands the
 
 - prepare_to_sign opens paper someone already signed as a packet for the signatures it still needs: the other side's offer, counter or amendment for the person's clients, or the person's own paper, signed outside Turbo Office, for the other side. Opening it signs and sends nothing. Their paper is accepted when the clients have signed it.
 - decide_their_paper turns down their counter or amendment (`decline`), or sets aside one that was made against terms that have since changed (`set_aside`).
-- end_offer ends an offer that is not bound: `rejected` when the side that received it turned it down, `withdrawn` when the side that made it took it back. reopen_offer undoes either, or a decline, at once.
+- end_offer ends an offer that is not bound: `rejected` when the side that received it turned it down, `withdrawn` when the side that made it took it back. reopen_offer undoes either, or a decline, at once, while the offer's paper is still in play. Ending our own offer voids its paper, so that one comes back through a recall: a fresh draft, and the offer reopens when it is sent.
 - withdraw_paper pulls our paper back. `recall` returns our sent offer to an editable draft. `void` cancels a counter, an amendment or a standalone signing of ours, and start_change composes a replacement afterwards.
 - record_execution records, on the person's word, that an instrument was signed outside Turbo Office. `retract` takes a recording back, and `waive_copy` stops asking for the signed copy.
 
@@ -31,7 +31,7 @@ Each of these except reopen_offer stages a card, and its `commits` line says wha
 
 ## Ending a bound contract
 
-There are two instruments, and the person's words choose between them: `mutual` when both parties release each other, `unilateral` when one exercises a right it holds. "My buyer wants out" is a situation and not yet a choice, so it is usually a question back, together with whether earnest money was delivered and how it is to be disbursed. start_termination drafts the paper. record_termination is for a contract the person says already ended outside Turbo Office; approving its card unwinds the deal with no paper. A signed release the person hands over is paper that came in, which is route_document.
+There are two instruments, and the person's words choose between them: `mutual` when both parties release each other, `unilateral` when one exercises a right it holds. "My buyer wants out" is a situation and not yet a choice, so it is usually a question back, together with whether earnest money was delivered and how it is to be disbursed. start_termination drafts the paper, and records the request it was started with: which instrument, who is terminating, whether earnest money was delivered and how it is disbursed. A change to any of those is start_termination again with `reviseEnvelopeId`, which replaces the draft and its request together; revise_draft changes the paper's wording and leaves the recorded request as it was. record_termination is for a contract the person says already ended outside Turbo Office; approving its card unwinds the deal with no paper. A signed release the person hands over is paper that came in, which is route_document.
 
 ## Correcting the record
 
