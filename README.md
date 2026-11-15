@@ -17,6 +17,10 @@ The tools are on the server, not in the packet, so they are current whichever co
 copy keeps working: its guides may be behind, and your assistant can read the current ones from the server. The
 Claude, ChatGPT and Cursor packets hold the same guides and differ only in the manifest each assistant reads.
 
+There is one server, and everyone connected is on it as it is today. Each plugin version is written from the server
+as it was when that version came out, so the copy to have is the current one. Your assistant can tell you whether
+yours is: the plugin states its own version, and the server says which version is current.
+
 ## Connecting
 
 See https://turbooffice.ai/docs for how to connect your assistant.
