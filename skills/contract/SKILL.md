@@ -11,7 +11,7 @@ The person's account of where things stand outranks the record. When they say th
 
 ## A change to the terms
 
-start_change records the change as a proposal on the offer's chain and hands the paper to the drafter. `facts` states what changes and nothing else, against the terms get_offer_chain shows. The paper it takes follows from where the deal stands: on a bound contract it is an amendment, and on an offer not yet bound (sent, countered, or expired unsigned) it is a counteroffer or modification. A counteroffer carries its own time limit to accept, so that is worth asking for when the person gave none. The answer says which paper it is.
+start_change records the change as a proposal on the offer's chain and hands the paper to the drafter. `facts` states what changes and nothing else, against the terms get_offer_chain shows. The paper it takes follows from where the deal stands: on a bound contract it is an amendment, and on an offer not yet bound (sent, countered, or expired unsigned) it is a counteroffer or modification. A counteroffer states its own time limit to accept, and start_change is refused without one, so it is the question to ask when the person gave none. The answer says which paper it is.
 
 - A counteroffer of ours replies to their pending counter. When their amendment is pending on a bound contract, `answers` says whether ours replies to it (it contends for the same terms) or stands beside it (independent terms). That is the person's call, and an amendment waits for it.
 - More than one amendment of ours can be out at once, and each applies in the order it is signed. A counteroffer of ours is one at a time.

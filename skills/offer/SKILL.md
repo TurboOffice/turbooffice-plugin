@@ -9,6 +9,6 @@ start_offer creates the offer's draft and hands it to Turbo Office's drafter wit
 
 `dealId` is the buyer's buy deal when they have one for this purchase, or the person's own listing when the offer is written on it; the seller is then their client, and the drafter reads the listing's documents on file. With no deal the offer starts on its own. It can still be drafted and sent, and it is recorded as an offer once its paper is on a deal: act_on_envelope `file_on_new_deal` makes a buy deal for its buyers, and revise_draft puts it on a deal that exists.
 
-Nothing is sent by starting. When the person is ready, act_on_envelope `review_and_send` stages the send as a card. Someone drafting for several agents names whose paper it is with `forUserId`.
+Nothing is sent by starting. When the person is ready, act_on_envelope `review_and_send` stages the send as a card. An offer's terms are read from its paper before it goes out: when they have not been read yet, the first review starts that read (two to three minutes) and stages no card, and the same call once the read has finished stages it. Someone drafting for several agents names whose paper it is with `forUserId`.
 
 Its tools: start_offer.

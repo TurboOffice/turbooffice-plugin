@@ -15,6 +15,6 @@ act_on_deal `pricing` changes it. `planId` moves the deal to another plan, `over
 
 While an amendment is drafted, another change is refused, and the refusal names the amendment. The drafted paper is sent like any other, and the deal records its terms when everyone has signed.
 
-A plan's entries are the plan's own. A flat commission where the plan states a percent, or a fee the plan does not have, is a different plan, so it helps to name the plans available. The Agreement period need opens 30 days before a signed agreement ends; moving the end, or a new agreement, settles it once signed. The commission confirmed at a closing is recorded with the close (act_on_deal `close`), and a list price is act_on_deal `list_price`.
+A plan's entries are the plan's own. A flat commission where the plan states a percent, or a fee the plan does not have, is a different plan, so it helps to name the plans available. The Agreement period need opens 30 days before a signed agreement ends and stays open after it has ended; moving the end, or a new agreement, settles it once signed. Both are open to an agreement whose period is already over. The commission confirmed at a closing is recorded with the close (act_on_deal `close`), and a list price is act_on_deal `list_price`.
 
 Its tools: act_on_deal.

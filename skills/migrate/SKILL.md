@@ -16,6 +16,6 @@ propose_routing takes the whole plan in one call: `instruments` in the order the
 - A deal that ended without a sale has no door of its own. It can come over on the person's word as a live deal and then be archived.
 - An agreement in the pile that nobody signed is history, filed as supporting paper.
 
-Paper coming over emails no one. A deal created from paper does not contact its clients until the person turns that on (act_on_deal `contact_clients`). Paper the person sends for signatures reaches its signers either way.
+Paper coming over is sent to no one. A deal created from paper keeps Turbo Office's own emails to its clients off until the person turns them on (act_on_deal `contact_clients`), and a deal that already exists keeps the setting it has. Paper the person sends for signatures reaches its signers either way.
 
 Its tools: route_document, answer_proposal, file_to_deal, record_closed_deal, act_on_deal.
