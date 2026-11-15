@@ -7,13 +7,15 @@ for signatures waits for your approval, and signing happens in TurboOffice.
 
 ## What is in it
 
-The plugin is the address of the TurboOffice server (`https://turbooffice.ai/mcp`) and a set of guides: plain
-Markdown files that tell your assistant how offers, contracts, signing and documents work in TurboOffice. Nothing runs
-on your computer. You sign in with your TurboOffice account through OAuth.
+The plugin is a small packet of files, downloaded as a ZIP or installed from your assistant's directory. Nearly all of
+it is guides: plain Markdown files that tell your assistant how offers, contracts, signing and documents work in
+TurboOffice. With them are a manifest, an icon, and one short file that names the TurboOffice server
+(`https://turbooffice.ai/mcp`), so that installing the plugin also connects your assistant to it. Nothing runs on your
+computer. You sign in with your TurboOffice account through OAuth.
 
-The tools are on the server, so they are current whichever copy of the plugin you have. An older copy keeps working:
-its guides may be behind, and your assistant can read the current ones from the server. The Claude, ChatGPT and Cursor
-files hold the same guides and differ only in the manifest each assistant reads.
+The tools are on the server, not in the packet, so they are current whichever copy of the plugin you have. An older
+copy keeps working: its guides may be behind, and your assistant can read the current ones from the server. The
+Claude, ChatGPT and Cursor packets hold the same guides and differ only in the manifest each assistant reads.
 
 ## Connecting
 
