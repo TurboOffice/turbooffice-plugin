@@ -11,7 +11,7 @@ act_on_deal `pricing` changes it. `planId` moves the deal to another plan, `over
 
 - Nothing drafted yet: the change runs at once, and it is written into the agreement when that is prepared.
 - A draft, or an agreement out for signatures: a card replaces it with a new draft on the new terms, and names what is lost (edits made on the draft, signatures collected).
-- Signed: a card drafts an amendment for the clients to sign, or, with `paper: "agreement"`, a new agreement that replaces the signed one once everyone signs. The signed terms stay in effect until then.
+- Signed: a card drafts an amendment for the clients to sign, or, with `paper: "agreement"`, a new agreement that replaces the signed one once everyone signs. The deal keeps the terms it has recorded until then.
 
 While an amendment is drafted, another change is refused, and the refusal names the amendment. The drafted paper is sent like any other, and the deal records its terms when everyone has signed.
 
