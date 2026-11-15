@@ -5,21 +5,23 @@ through closing. This plugin connects your AI assistant to your TurboOffice acco
 documents, tasks and key dates, and help with the work on them. Anything that binds a contract or sends documents
 for signatures waits for your approval, and signing happens in TurboOffice.
 
-## What is in it
+## How it is organized
 
-The plugin is a small packet of files, downloaded as a ZIP or installed from your assistant's directory. Nearly all of
-it is guides: plain Markdown files that tell your assistant how offers, contracts, signing and documents work in
-TurboOffice. With them are a manifest, an icon, and one short file that names the TurboOffice server
-(`https://turbooffice.ai/mcp`), so that installing the plugin also connects your assistant to it. Nothing runs on your
-computer. You sign in with your TurboOffice account through OAuth.
+- `skills/` holds the guides: one Markdown file for each kind of work (`offer`, `contract`, `sign`, `route-document`,
+  `cma`, `forms`, `signers`, `deal`, `agreement-terms`, `migrate`) and `turbooffice`, the overview. They are generated
+  from the server and say how its tools are used.
+- `mcp.json` (`.mcp.json` for Claude and Cursor) names the server, `https://turbooffice.ai/mcp`. The tools are on the
+  server, not in the plugin. Sign-in is OAuth with a TurboOffice account.
+- `plugin.json`, `.claude-plugin/` and `.cursor-plugin/` are the manifests, one for each kind of host. The Claude,
+  ChatGPT and Cursor packages hold the same skills and differ only in the manifest.
+- `assets/` holds the icon. Nothing in the plugin runs.
 
-The tools are on the server, not in the packet, so they are current whichever copy of the plugin you have. An older
-copy keeps working: its guides may be behind, and your assistant can read the current ones from the server. The
-Claude, ChatGPT and Cursor packets hold the same guides and differ only in the manifest each assistant reads.
+## Versions
 
-There is one server, and everyone connected is on it as it is today. Each plugin version is written from the server
-as it was when that version came out, so the copy to have is the current one. Your assistant can tell you whether
-yours is: the plugin states its own version, and the server says which version is current.
+There is one server. Each plugin version is generated from the server as it was at that release, and states its
+version in its manifest and in the description of the `turbooffice` skill. The server reports the current version and
+each package's download (`whoami`). An older copy still works with the server; its guides describe the tools as
+they were at that version, and `load_skill` returns the current guides.
 
 ## Connecting
 
