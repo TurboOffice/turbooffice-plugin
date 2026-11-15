@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.0
+
+- A request answers within about 25 seconds. Work that takes longer, such as reading a scanned document, drafting, or pricing a home, keeps going, and the assistant reads the result when it is ready.
+- A filed document opens from a short link that works for 5 minutes.
+- The assistant reads a deal's commission and fees when asked.
+
 ## 1.2.0
 
 - The assistant can start an offer, a counter or an amendment, a listing, a buyer agreement, a deal's agreement or disclosure, a form, a signing, and a CMA. TurboOffice writes the paper.
