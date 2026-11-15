@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.1
+
+- Clearer guidance for the assistant on counteroffers, sending an offer, agreements that have ended, and what happens at once versus what waits for approval.
+- The plugin states its version, so the assistant can tell when a copy is out of date and say where to update it.
+
 ## 1.3.0
 
 - A request answers within about 25 seconds. Work that takes longer, such as reading a scanned document, drafting, or pricing a home, keeps going, and the assistant reads the result when it is ready.
