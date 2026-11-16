@@ -1,6 +1,6 @@
 ---
 name: turbooffice
-description: "Work on a real estate agent's deals in TurboOffice: listings and buyer deals, offers, counteroffers and contracts, the documents on file, tasks and dates, and what each deal still needs. Use it whenever the person asks about their deals or their transaction paperwork. Plugin copy version 1.3.1; whoami gives the current one."
+description: "Work on a real estate agent's deals in TurboOffice: listings and buyer deals, offers, counteroffers and contracts, the documents on file, tasks and dates, and what each deal still needs. Use it whenever the person asks about their deals or their transaction paperwork. Plugin copy version 1.4.0; whoami gives the current one."
 ---
 
 # TurboOffice
@@ -18,3 +18,4 @@ Turbo Office is the platform a real estate brokerage and its agents use to run l
 - `deal` — the deal itself, its clients or its photos: archive a deal or take it out of the archive, move it between the stages before a contract, change a listing's list price, add, reorder, caption or download a listing's photos or pick its cover, close a deal (one whose contract was signed outside the app too) or correct a closed deal's price, day or commission, move a contract's closing date, share uploaded files with the clients, correct a seller's or buyer's name, email or phone, add someone from the brokerage to the deal's team or take them off it — "add Jed to the Brooks deal", "archive the old Kaden deal", "send the inspection to the sellers for their records", "Kaden's email is wrong, it's kaden@gmail.com", "we're live, mark it listed", "drop the list price to 425", "it closed Oct 7 at 262k", and a sale that already closed off the platform, recorded so it counts in the agent's closed numbers — "add my closing on 4 Elm St from March, 412k, 3%"
 - `agreement-terms` — a deal's pricing and its agreement's period: move a listing or a buy deal to another pricing plan, adjust its commission or a fee, extend or shorten the listing or engagement period, or draft a new agreement rather than an amendment — "move the Kaden listing to the 2.5% plan", "drop Kaden's commission to 2.75", "extend the listing through March", "the sellers want a new listing agreement, not an amendment"
 - `migrate` — a whole deal coming over from another system with its paper, live or already over — "here is the Dotloop folder for 12 Oak St, bring it over"
+- `people` — the firm's people and their pay: bringing an agent on, who works where, an agent's pay terms — "we're bringing on Michael, prep his agreement", "record Dana's split"

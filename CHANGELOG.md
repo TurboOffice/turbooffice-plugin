@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.0
+
+- The assistant can help a brokerage bring on an agent: it records the person, prepares their contractor agreement for signature, and adds them to the brokerage's staff once an admin approves.
+- The assistant can read and record an agent's pay terms with the brokerage, such as a split, a cap, fees or a salary. It says back what a closing would pay, so a mistake is easy to see.
+
 ## 1.3.1
 
 - Clearer guidance for the assistant on counteroffers, sending an offer, agreements that have ended, and what happens at once versus what waits for approval.
