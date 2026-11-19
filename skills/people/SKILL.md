@@ -7,7 +7,7 @@ The firm's own people: who works in which unit, a person the firm is bringing on
 
 Bringing a person on has two states.
 
-**Being added.** start_adding_person records who they are and the address paper for them goes to, at once. They are not on staff: nobody is emailed, and they have no sign-in and no seat. The firm's agreement with them is paper they sign. A copy nobody has signed is prepared and sent as any paper on no deal is (the sign skill: attach_file, start_signing with no `dealId`, act_on_envelope for its signers and fields and then `review_and_send`), with them as a signer at that address beside whoever signs for the firm. get_people then reads where the agreement stands (drafted, out for signatures, signed) from the signings sent to that address, and prints the signed copy's file id. stop_adding_person ends it.
+**Being added.** start_adding_person records who they are and the address paper for them goes to, at once. They are not on staff: nobody is emailed, and they have no sign-in and no seat. The firm's agreement with them is paper they sign. A copy nobody has signed is prepared and sent as any paper on no deal is (the sign skill: attach_file, start_signing with no `dealId`, act_on_envelope for its signers and fields and then `review_and_send`), with them as a signer at that address beside whoever signs for the firm. get_people then reads where the agreement stands (drafted, out for signatures, signed) from the signings sent to that address, and prints the signed copy's file id. Once their pay terms are known, record_person_terms records them on that person at once and emails nobody; add_person_to_staff with their `additionId` then writes those terms as theirs. stop_adding_person ends it.
 
 **On staff.** add_person_to_staff stages a card that puts a person on the firm's staff. Approving it gives them a sign-in, takes a seat where the firm's plan counts seats, and emails their invitation at their work email, which is often not the address their agreement went to. `additionId` names the person being added it finishes. With `terms` the card also records their pay terms.
 
@@ -41,4 +41,4 @@ An agreement is recorded from what its pages state: each term as its own entry i
 
 The answer to a recording, and the card's `commits` line, say the terms back in dollars on a $10,000 closing. Those dollars are worth reading against the agreement before the person sees them: a figure the agreement would not pay is a misreading, corrected by recording the terms again.
 
-Its tools: get_people, start_adding_person, stop_adding_person, add_person_to_staff, get_agent_pay, record_agent_terms.
+Its tools: get_people, start_adding_person, record_person_terms, stop_adding_person, add_person_to_staff, get_agent_pay, record_agent_terms.

@@ -7,14 +7,14 @@ The deal itself: its stage, team, clients, list price, dates, close and photos.
 
 act_on_deal acts on one deal, and its description says which actions run at once and which stage a card. In practice:
 
-- Status and team changes (`stage`, `list_price`, `go_live`, `unarchive`, `add_teammate`, `remove_teammate`) run at once, and the answer says what changed. A teammate's user id comes from find_teammates, and nobody is emailed.
+- Status and team changes (`stage`, `list_price`, `go_live`, `unarchive`, `withdraw`, `reinstate`, `add_teammate`, `remove_teammate`) run at once, and the answer says what changed. `withdraw` takes a listed listing off the market while its listing agreement is still in force, and `reinstate` lists it again; a listing that is over is `archive`. A teammate's user id comes from find_teammates, and nobody is emailed.
 - `archive` runs at once on a deal with nothing out for signatures. With paper out it is a card, because archiving voids that paper and tells its signers.
 - `close` records the closing with its day, its price and, when the person stated one, the commission. It also corrects a close already on record, and `close_commission` changes the commission alone.
 - `contract_date` moves a date on the contract that the parties moved without papering it. A date the record got wrong is a correction, and a move the parties still have to sign is an amendment; both are the contract skill's.
 - `share_documents` emails the deal's clients that files are on their deal page. `send_contract_copy` emails the signed copy of a contract that was recorded as signed outside Turbo Office. `contact_clients` turns on the emails Turbo Office sends a deal's clients on its own, which a deal created from paper starts without.
 - Pricing, commission and the agreement's period are the agreement-terms skill.
 
-Which deal is meant is the person's to say. search_deals finds it by address or client, and "the old one" or "the one with the wrong email" is read against what get_deal shows. A deal's stages under contract come from its paper: the signed contract puts it under contract, and a termination ends it (the contract skill).
+Which deal is meant is the person's to say. search_deals finds it by address or client, and "the old one" or "the one with the wrong email" is read against what get_deal shows. A recorded contract puts its deal under contract with its terms and dates, and from then the stage follows the contract: a termination ends it (the contract skill). A deal with no contract recorded is moved under contract, and back, with `stage` (`LISTING_IN_DD` or `BUYER_IN_DD`): the answer says the deal then needs its executed contract and closing date, and route_document records the signed contract when the person has it.
 
 change_parties `contact` corrects a seller's or buyer's details on every deal they are on, as a card. An email the client already signs in with is changed by support, and the refusal says where to reach them.
 

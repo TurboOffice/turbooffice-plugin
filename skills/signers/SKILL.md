@@ -15,8 +15,9 @@ act_on_envelope does the work on one envelope:
 - `signing_order` sets who is asked to sign first.
 - `move` puts a signing envelope on another deal, or off its deal.
 - `review_and_send` stages the send as a card.
+- `remind` stages a reminder to the people who still have to sign paper that is out for signatures, as a card naming who is emailed. A need waiting on its people to fill it out is reminded with act_on_need `remind`.
 
-A listing or buyer agreement takes its client seats from the deal's sellers or buyers. A person who belongs on that paper is added to the deal with change_parties, and the draft reseats itself. change_parties also takes a seller or buyer off a deal, puts one on or off title, or corrects a name, email or phone; each is a card that says who is emailed and what paper is voided, redrawn or sent again.
+A listing or buyer agreement takes its client seats from the deal's sellers or buyers. A person who belongs on that paper is added to the deal with change_parties, and the draft reseats itself. Our agent's seat on a deal's paper is one person. On a draft, `change_signers` with `replace` gives it to another person at the brokerage: they need access to the deal and an active license in the state with the deal's brokerage, and a refusal says which is missing. On paper out for signatures the seat is not handed over: such a person signs in place of the agent seated, in Turbo Office, and the seat is theirs once they have signed. change_parties also takes a seller or buyer off a deal, puts one on or off title, or corrects a name, email or phone; each is a card that says who is emailed and what paper is voided, redrawn or sent again.
 
 The form's roles are the seats by default. A person the form has no line for can still be seated by role, and a field placed for that role gives the seat its line; a seat with no line when the draft is sent is left off. A seat that has already signed is not changed in place: the paper is pulled back and prepared again.
 
